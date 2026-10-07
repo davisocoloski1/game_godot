@@ -8,14 +8,18 @@ const ATTACK_RANGE := 12.0
 @onready var player: Node2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_cooldown: Timer = $AttackCooldown
+@onready var health_bar: ProgressBar = $HealthBar
 
-var life = 3
+var life: int
 var can_attack := false
 var state := State.CHASE
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	attack_cooldown.start()
+
+	life = 3
+	health_bar.init_health(life)
 
 func _process(_delta: float) -> void:
 	pass
@@ -77,6 +81,8 @@ func take_damage():
 	else:
 		state = State.HURT
 		animated_sprite.play("hart")
+
+	health_bar.health = life
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

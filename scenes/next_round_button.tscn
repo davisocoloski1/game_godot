@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cddve3asooolm"]
+
+[ext_resource type="Texture2D" uid="uid://bp4oapnbkwqix" path="res://assets/Interactives/next_round_button.png" id="1_27tjr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocbll"]
+atlas = ExtResource("1_27tjr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2ipn"]
+atlas = ExtResource("1_27tjr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xktbj"]
+atlas = ExtResource("1_27tjr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udnaf"]
+atlas = ExtResource("1_27tjr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2wuvy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocbll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2ipn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xktbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udnaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocbll")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhgmx"]
+size = Vector2(26, 28)
+
+[node name="NextRoundButton" type="Area2D" unique_id=606983366]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=6702538]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_2wuvy")
+frame = 4
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384596550]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_fhgmx")

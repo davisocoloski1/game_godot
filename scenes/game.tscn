@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://vj143lruv4op" path="res://assets/Tileset/Tiled.png" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://co8f3mbj71r74" path="res://scenes/player.tscn" id="2_lnu2h"]
 [ext_resource type="FontFile" uid="uid://dqoe86wxkim4e" path="res://assets/UI/DigitalDisco.ttf" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://dn5chbvb0aj2a" path="res://scenes/health_bar.tscn" id="5_iywne"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("1_yqjtg")
@@ -538,15 +539,6 @@ editor_draw_limits = true
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
 
-[node name="LifeLabel" type="Label" parent="Player/HUD" unique_id=1686679147]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 123.0
-offset_bottom = 61.0
-theme_override_fonts/font = ExtResource("4_iywne")
-theme_override_font_sizes/font_size = 16
-metadata/_edit_use_anchors_ = true
-
 [node name="EnemiesLabel" type="Label" parent="Player/HUD" unique_id=950653613]
 offset_left = 20.0
 offset_top = 75.0
@@ -555,6 +547,12 @@ offset_bottom = 116.0
 theme_override_fonts/font = ExtResource("4_iywne")
 theme_override_font_sizes/font_size = 16
 metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" parent="Player/HUD" unique_id=224388960 instance=ExtResource("5_iywne")]
+offset_left = 15.0
+offset_top = 8.5
+offset_right = 109.0
+offset_bottom = 22.5
 
 [node name="MapBoundaries" type="StaticBody2D" parent="." unique_id=872704228]
 collision_mask = 0

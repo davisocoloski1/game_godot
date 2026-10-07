@@ -7,15 +7,20 @@ const JUMP_VELOCITY = -400.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_area: Area2D = $AttackArea
 @onready var attack_shape: CollisionShape2D = $AttackArea/CollisionShape2D
-@onready var life_label: Label = $HUD/LifeLabel
 
 var attack_offset_x: float
-var life: int = 10
+var life: int : get = _get_life
 var state := State.IDLE
+signal health_changed(new_life: int)
 
 func _ready() -> void:
 	attack_offset_x = abs(attack_shape.position.x)
-	life_label.text = "Life: " + str(life)
+	life = 10
+
+
+func _get_life():
+	return life
+
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("mobs"):
@@ -75,14 +80,14 @@ func take_damage():
 	
 	attack_shape.set_deferred("disabled", true)
 	life -= 1
+	health_changed.emit(life)
 	if life <= 0:
 		state = State.DEAD
 		animated_sprite.play("dead")
 	else:
 		state = State.HURT
 		animated_sprite.play("hit")
-		
-	life_label.text = "Life: " + str(life)
+
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	match state:

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://q1yin2t1ry11" path="res://assets/Characters/Character_3/Hart.png" id="3_gstla"]
 [ext_resource type="Texture2D" uid="uid://ccsiujydisdr4" path="res://assets/Characters/Character_3/Idle.png" id="4_v5wyi"]
 [ext_resource type="Texture2D" uid="uid://coim8sstuidj" path="res://assets/Characters/Character_3/Walk.png" id="5_0l8pv"]
+[ext_resource type="PackedScene" uid="uid://dn5chbvb0aj2a" path="res://scenes/health_bar.tscn" id="7_gstla"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vnioy"]
 atlas = ExtResource("1_2npkn")
@@ -190,7 +191,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wuvy"]
-size = Vector2(16, 9)
+size = Vector2(16, 11)
 
 [node name="Slime" type="CharacterBody2D" unique_id=666682969 groups=["mobs"]]
 collision_layer = 4
@@ -203,12 +204,18 @@ animation = &"attack"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1126451952]
-position = Vector2(0, -4.5)
+position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_2wuvy")
 
 [node name="AttackCooldown" type="Timer" parent="." unique_id=1068401769]
 wait_time = 1.5
 one_shot = true
+
+[node name="HealthBar" parent="." unique_id=224388960 instance=ExtResource("7_gstla")]
+offset_left = -7.0
+offset_top = -19.0
+offset_right = 7.0
+offset_bottom = -15.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

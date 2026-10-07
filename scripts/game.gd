@@ -7,11 +7,14 @@ var mob_scene = preload("res://scenes/slime.tscn")
 @onready var right_limit: CollisionShape2D = $MapBoundaries/RightLimit
 @onready var mob_spawn_cooldown: Timer = $MobSpawnCooldown
 @onready var enemies_label: Label = $Player/HUD/EnemiesLabel
+@onready var health_bar: ProgressBar = $Player/HUD/HealthBar
+@onready var player: CharacterBody2D = $Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-	
+	health_bar.init_health(player.life)
+	player.health_changed.connect(_on_player_health_changed)
+
 func _process(_delta: float) -> void:
 	enemies_label.text = "Enemies: " + str(Globals.enemies_alive) + "\nTotal enemies: " + str(Globals.enemies_per_round) + "\nRound: " + str(Globals.current_round)
 
@@ -29,3 +32,7 @@ func _on_mob_spawn_cooldown_timeout() -> void:
 			mob_spawn_cooldown.wait_time = 2
 		
 	Globals.update_round()
+
+
+func _on_player_health_changed(new_life: int):
+	health_bar.health = new_life
