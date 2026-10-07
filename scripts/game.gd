@@ -31,7 +31,7 @@ func _on_mob_spawn_cooldown_timeout() -> void:
 			Globals.enemies_alive += 1
 			mob_spawn_cooldown.wait_time = 2
 		
-	Globals.update_round()
+	Globals.finish_round()
 
 
 func _on_player_health_changed(new_life: int):
