@@ -6,6 +6,7 @@ extends Node2D
 @onready var boundaries: StaticBody2D = $Boundaries
 @onready var chest_anim: AnimatedSprite2D = $Chest/AnimatedSprite2D
 @onready var action_label: Label = $Player/CanvasLayer/ActionLabel
+@onready var shop_menu: Control = $Player/CanvasLayer/ShopMenu
 
 
 var _is_in_chest_area: bool = false
@@ -15,12 +16,18 @@ func _ready() -> void:
 	camera.zoom = Vector2(1, 1)
 	camera.enabled = true
 	camera.align()
+	shop_menu.close.connect(_on_closed)
+
+
+func _on_closed():
+	shop_menu.visible = false
 
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("interact"):
 		if _is_in_chest_area:
-			pass
+			shop_menu.visible = true
+			action_label.text = ""
 		if _is_in_bonfire_area:
 			Globals.next_round()
 			get_tree().change_scene_to_file("res://scenes/game.tscn")
@@ -46,6 +53,7 @@ func _on_chest_interect_area_body_exited(body: Node2D) -> void:
 	action_label.text = ""
 	chest_anim.play("close")
 	_is_in_chest_area = false
+	shop_menu.visible = false
 
 
 func _on_bonfire_interect_area_body_exited(body: Node2D) -> void:

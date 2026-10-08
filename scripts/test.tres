@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://do016ba4p043c"]
+
+[ext_resource type="Script" uid="uid://bohmfrs3v11hc" path="res://scripts/item_data.gd" id="1_0xmc5"]
+[ext_resource type="Texture2D" uid="uid://bp4oapnbkwqix" path="res://assets/Interactives/next_round_button.png" id="2_0hfiy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7y8e"]
+atlas = ExtResource("2_0hfiy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0hfiy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7y8e")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_0xmc5")
+name = "Test"
+effect = 1
+price = 20
+sprite_frames = SubResource("SpriteFrames_0hfiy")
+metadata/_custom_type_script = "uid://bohmfrs3v11hc"

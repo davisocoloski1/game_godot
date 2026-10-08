@@ -1,23 +1,26 @@
 [gd_scene format=3 uid="uid://iyfvxrr54dyr"]
 
 [ext_resource type="Script" uid="uid://c8yftrlu1brnc" path="res://scripts/item_slot.gd" id="1_567tv"]
+[ext_resource type="FontFile" uid="uid://cf45tqvxuj0oi" path="res://assets/UI/DigitalDisco-Thin.ttf" id="2_eqbkm"]
 
 [node name="ItemSlot" type="Button" unique_id=673136953]
-custom_minimum_size = Vector2(96, 96)
-offset_right = 96.0
-offset_bottom = 96.0
+custom_minimum_size = Vector2(112, 112)
+offset_right = 112.0
+offset_bottom = 112.0
 script = ExtResource("1_567tv")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=317533060]
+custom_minimum_size = Vector2(112, 112)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 112.0
+offset_bottom = 112.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1481375725]
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=400477498]
 custom_minimum_size = Vector2(48, 48)
+propagate_maximum_size = true
 layout_mode = 2
 mouse_filter = 2
 expand_mode = 1
@@ -25,6 +28,13 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=546175425]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_eqbkm")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=862176973]
+propagate_maximum_size = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_eqbkm")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1

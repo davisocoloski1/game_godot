@@ -7,6 +7,8 @@ var enemies_this_round: int = enemies_per_round
 var enemies_multiplier: float = 1.2
 var enemies_alive: int = 0
 
+var player_coins: int = 0
+
 func finish_round():
 	if enemies_alive > 0:
 		return

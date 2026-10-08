@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://co8f3mbj71r74" path="res://scenes/player.tscn" id="2_032fp"]
 [ext_resource type="Texture2D" uid="uid://c1vfrw243j4lf" path="res://assets/Tiled/Tiled_animation_32px.png" id="3_2fc2m"]
 [ext_resource type="FontFile" uid="uid://dqoe86wxkim4e" path="res://assets/UI/DigitalDisco.ttf" id="4_2fc2m"]
+[ext_resource type="PackedScene" uid="uid://b0w1w0qu6wsrs" path="res://scenes/shop_menu.tscn" id="5_8r1wq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8r1wq"]
 texture = ExtResource("1_1l46r")
@@ -696,6 +697,13 @@ theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ShopMenu" parent="Player/CanvasLayer" unique_id=300142159 instance=ExtResource("5_8r1wq")]
+visible = false
+offset_left = 6.0
+offset_top = 80.0
+offset_right = 6.0
+offset_bottom = 80.0
+
 [node name="Bonfire" type="StaticBody2D" parent="." unique_id=1910994263]
 position = Vector2(860, 247)
 collision_mask = 0
@@ -735,7 +743,7 @@ position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_yrccr")
 
 [node name="Timer" type="Timer" parent="." unique_id=1513267951]
-wait_time = 0.009999999999999998
+wait_time = 0.00999999999999999
 autostart = true
 
 [connection signal="body_entered" from="Bonfire/InterectArea" to="." method="_on_bonfire_interect_area_body_entered"]

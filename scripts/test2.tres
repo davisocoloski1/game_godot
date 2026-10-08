@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dfmitlgsef2vo"]
+
+[ext_resource type="Script" uid="uid://bohmfrs3v11hc" path="res://scripts/item_data.gd" id="1_uahey"]
+[ext_resource type="Texture2D" uid="uid://bpyg5ibvd30x4" path="res://assets/Characters/Character_1/Shield.png" id="2_adl8g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nesgh"]
+atlas = ExtResource("2_adl8g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_adl8g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nesgh")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_uahey")
+name = "Test 2"
+effect = 2
+price = 100
+sprite_frames = SubResource("SpriteFrames_adl8g")
+metadata/_custom_type_script = "uid://bohmfrs3v11hc"

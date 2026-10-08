@@ -1,5 +1,14 @@
 [gd_scene format=3 uid="uid://b0w1w0qu6wsrs"]
 
+[ext_resource type="Script" uid="uid://1jmisg0tovea" path="res://scripts/shop_menu.gd" id="1_76m3e"]
+[ext_resource type="Script" uid="uid://bohmfrs3v11hc" path="res://scripts/item_data.gd" id="2_cql4u"]
+[ext_resource type="Resource" uid="uid://ctrramfsasav2" path="res://scripts/heal_potion.tres" id="3_xw4en"]
+[ext_resource type="PackedScene" uid="uid://iyfvxrr54dyr" path="res://scenes/item_slot.tscn" id="4_bq4yc"]
+[ext_resource type="Resource" uid="uid://do016ba4p043c" path="res://scripts/test.tres" id="4_cql4u"]
+[ext_resource type="Resource" uid="uid://dfmitlgsef2vo" path="res://scripts/test2.tres" id="5_xw4en"]
+[ext_resource type="Texture2D" uid="uid://drm30xum71wg0" path="res://assets/Items/coin/coin1.png" id="7_bq4yc"]
+[ext_resource type="FontFile" uid="uid://dqoe86wxkim4e" path="res://assets/UI/DigitalDisco.ttf" id="8_lngpu"]
+
 [node name="ShopMenu" type="Control" unique_id=300142159]
 layout_mode = 3
 anchors_preset = 15
@@ -7,12 +16,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_76m3e")
+items = Array[ExtResource("2_cql4u")]([ExtResource("3_xw4en"), ExtResource("4_cql4u"), ExtResource("5_xw4en"), ExtResource("3_xw4en"), ExtResource("5_xw4en"), ExtResource("4_cql4u"), ExtResource("3_xw4en"), ExtResource("5_xw4en"), ExtResource("4_cql4u"), ExtResource("3_xw4en"), ExtResource("5_xw4en"), ExtResource("4_cql4u"), ExtResource("3_xw4en"), ExtResource("5_xw4en"), ExtResource("4_cql4u")])
+slot_scene = ExtResource("4_bq4yc")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=857958029]
-custom_minimum_size = Vector2(400, 300)
+custom_minimum_size = Vector2(360, 300)
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 390.0
+offset_bottom = 476.0
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=456884166]
 layout_mode = 2
@@ -21,14 +35,45 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=75912202]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1499546379]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1972109270]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1818799214]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=448668800]
+custom_minimum_size = Vector2(0, 360)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1818799214]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1124418417]
+custom_minimum_size = Vector2(336, 32)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=915293594]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=774610851]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+texture = ExtResource("7_bq4yc")
+
+[node name="CoinsLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1666171908]
+custom_minimum_size = Vector2(0, 32)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("8_lngpu")
+theme_override_font_sizes/font_size = 24
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=915293594]
+custom_minimum_size = Vector2(336, 32)
+layout_mode = 2
+text = "Fechar
+"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

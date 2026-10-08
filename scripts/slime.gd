@@ -78,9 +78,11 @@ func take_damage():
 	if life <= 0:
 		state = State.DEAD
 		animated_sprite.play("dead")
+		Globals.player_coins += 1
 	else:
 		state = State.HURT
 		animated_sprite.play("hart")
+		attack_cooldown.start()
 
 	health_bar.health = life
 
