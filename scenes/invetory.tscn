@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://p40qnvrdcfae"]
+
+[ext_resource type="FontFile" uid="uid://dqoe86wxkim4e" path="res://assets/UI/DigitalDisco.ttf" id="1_18pej"]
+
+[node name="Invetory" type="Control" unique_id=365378985]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=184711658]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 400.0
+offset_bottom = 400.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=101330719]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=452323915]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1114972674]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=958610556]
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_18pej")
+text = "Items Invetory"
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=973504345]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=520387741]
+custom_minimum_size = Vector2(0, 360)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=2019036523]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="Close" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1339497491]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_18pej")
+text = "Close"

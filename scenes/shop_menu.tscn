@@ -23,10 +23,10 @@ slot_scene = ExtResource("4_bq4yc")
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=857958029]
 custom_minimum_size = Vector2(360, 300)
 layout_mode = 1
-offset_left = 30.0
-offset_top = 30.0
-offset_right = 390.0
-offset_bottom = 476.0
+offset_left = 50.0
+offset_top = 82.0
+offset_right = 410.0
+offset_bottom = 565.0
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=456884166]
 layout_mode = 2
@@ -73,7 +73,8 @@ vertical_alignment = 1
 [node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=915293594]
 custom_minimum_size = Vector2(336, 32)
 layout_mode = 2
-text = "Fechar
+text = "Close
+
 "
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

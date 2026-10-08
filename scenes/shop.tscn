@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://co8f3mbj71r74" path="res://scenes/player.tscn" id="2_032fp"]
 [ext_resource type="Texture2D" uid="uid://c1vfrw243j4lf" path="res://assets/Tiled/Tiled_animation_32px.png" id="3_2fc2m"]
 [ext_resource type="FontFile" uid="uid://dqoe86wxkim4e" path="res://assets/UI/DigitalDisco.ttf" id="4_2fc2m"]
+[ext_resource type="Resource" uid="uid://3ar2dfao4xwo" path="res://scripts/player.tres" id="4_ajxib"]
 [ext_resource type="PackedScene" uid="uid://b0w1w0qu6wsrs" path="res://scenes/shop_menu.tscn" id="5_8r1wq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8r1wq"]
@@ -676,6 +677,7 @@ shape = SubResource("WorldBoundaryShape2D_wvr2q")
 [node name="Player" parent="." unique_id=557223549 instance=ExtResource("2_032fp")]
 z_index = 1
 position = Vector2(922, 260)
+data = ExtResource("4_ajxib")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1106634799]
 enabled = false
@@ -699,10 +701,6 @@ vertical_alignment = 1
 
 [node name="ShopMenu" parent="Player/CanvasLayer" unique_id=300142159 instance=ExtResource("5_8r1wq")]
 visible = false
-offset_left = 6.0
-offset_top = 80.0
-offset_right = 6.0
-offset_bottom = 80.0
 
 [node name="Bonfire" type="StaticBody2D" parent="." unique_id=1910994263]
 position = Vector2(860, 247)
