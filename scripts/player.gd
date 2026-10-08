@@ -9,13 +9,12 @@ const JUMP_VELOCITY = -400.0
 @onready var attack_shape: CollisionShape2D = $AttackArea/CollisionShape2D
 
 var attack_offset_x: float
-var life: int : get = _get_life
+var life: int = 10 : get = _get_life
 var state := State.IDLE
 signal health_changed(new_life: int)
 
 func _ready() -> void:
 	attack_offset_x = abs(attack_shape.position.x)
-	life = 10
 
 
 func _get_life():

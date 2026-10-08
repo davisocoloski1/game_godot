@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ctrramfsasav2"]
+
+[ext_resource type="Script" uid="uid://bohmfrs3v11hc" path="res://scripts/item_data.gd" id="1_sntu5"]
+[ext_resource type="Texture2D" uid="uid://bqhcvgfv7erx2" path="res://assets/Items/heal_potion/idle.png" id="2_ank71"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3rjx"]
+atlas = ExtResource("2_ank71")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqgys"]
+atlas = ExtResource("2_ank71")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ei12"]
+atlas = ExtResource("2_ank71")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee4pn"]
+atlas = ExtResource("2_ank71")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hg1i"]
+atlas = ExtResource("2_ank71")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufupm"]
+atlas = ExtResource("2_ank71")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ank71"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3rjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqgys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ei12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee4pn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hg1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufupm")
+}],
+"loop": 2,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_sntu5")
+name = "Health Potion"
+sprite_frames = SubResource("SpriteFrames_ank71")
+metadata/_custom_type_script = "uid://bohmfrs3v11hc"

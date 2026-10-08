@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://q0qaumencj7e"]
+
+[ext_resource type="Script" uid="uid://d2wn7w4tbuvx" path="res://scripts/item.gd" id="1_4gq7n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2wuvy"]
+radius = 8.062258
+
+[node name="Item" type="Area2D" unique_id=737400044]
+script = ExtResource("1_4gq7n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=241624877]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2044660259]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_2wuvy")
